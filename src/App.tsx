@@ -13,6 +13,6 @@ function App() {
       <RouterProvider router={router} />
     </MantineProvider>
   );
-}
+} 
 
 export default App;

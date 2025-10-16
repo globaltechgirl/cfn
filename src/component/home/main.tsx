@@ -73,7 +73,7 @@ const styles: Record<string, CSSProperties> = {
     animation: "wave 3s ease-in-out infinite",
   },
   mapImageContainer: {
-    marginTop: 60,
+    marginTop: 30,
     position: "relative",
     width: 1012,
     height: 578,
