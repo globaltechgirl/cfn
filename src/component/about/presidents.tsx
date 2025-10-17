@@ -1,6 +1,5 @@
 import { Box, Text, Image } from "@mantine/core";
-import { useState } from "react";
-import type { FC, CSSProperties } from "react";
+import { useState, type FC, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 
 import President1 from "@/assets/president1.webp";
@@ -48,9 +47,9 @@ const styles: Record<string, CSSProperties> = {
     gap: 30,
     marginTop: 20,
   },
-  box: {
-    position: "relative",
-    marginBottom: 60,
+  box: { 
+    position: "relative", 
+    marginBottom: 60 
   },
   imageMain: {
     background: "var(--white-300)",
@@ -93,7 +92,7 @@ const styles: Record<string, CSSProperties> = {
     justifyContent: "center",
     opacity: 0,
     transition: "opacity 0.4s ease",
-    color: "white",
+    color: "#fff",
   },
   viewProfileBox: {
     background: "rgba(255,255,255,0.15)",
@@ -192,8 +191,7 @@ const Presidents: FC = () => {
                   alt={president.name}
                   style={{
                     ...styles.image,
-                    transform:
-                      hovered === index ? "scale(1.08)" : "scale(1.0)",
+                    transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
                   }}
                 />
                 <Box
@@ -216,6 +214,7 @@ const Presidents: FC = () => {
                 </Box>
               </Box>
             </Box>
+
             <Box style={styles.boxMain}>
               <Box style={styles.boxWrapper}>
                 <Text style={styles.date}>{president.date}</Text>

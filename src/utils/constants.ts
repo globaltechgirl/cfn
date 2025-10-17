@@ -5,6 +5,7 @@ export const ROUTES = {
   ABOUT: "/about",
   COOPERATIVE: "/cooperative",
   MEDIA: "/media",
+  MEDIA_DETAIL: "/media/:id",
   CONTACT: "/contact",
 };
 

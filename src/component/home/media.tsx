@@ -79,7 +79,7 @@ const styles: Record<string, CSSProperties> = {
     height: 200,
     overflow: "hidden",
   },
-  img: {
+  image: {
     width: "100%",
     height: "100%",
     objectFit: "contain",
@@ -113,7 +113,7 @@ const styles: Record<string, CSSProperties> = {
     marginTop: 5,
   },
   label: {
-    background: "var(--green-200)",
+    background: "var(--green-100)",
     color: "var(--white-100)",
     fontSize: 10,
     fontWeight: 450,
@@ -175,7 +175,7 @@ const Media: FC = () => (
         <Box key={index} style={styles.box}>
           <Box style={styles.wrapper}>
             <Box style={styles.imageBox}>
-              <Image src={item.img} alt="CFN Logo" style={styles.img} />
+              <Image src={item.img} alt="CFN Logo" style={styles.image} />
             </Box>
 
             <Box style={styles.infoBox}>
