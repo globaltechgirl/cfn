@@ -1,6 +1,7 @@
 import { Box, Text } from "@mantine/core";
 import type { FC, CSSProperties } from "react";
 import CooperativeCard from "./cooperatureCard";
+import CooperativeValues from "./cooperativeValues";
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -39,6 +40,8 @@ const CooperativeMain: FC = () => (
     </Box>
 
     <CooperativeCard />
+
+    <CooperativeValues />
   </Box>
 );
 
