@@ -1,16 +1,7 @@
 import { Box, Text, Image } from "@mantine/core";
 import { IconClock } from "@tabler/icons-react";
 import type { FC, CSSProperties } from "react";
-import CFNLogo from "@/assets/cfn.svg";
-
-interface MediaItem {
-  img: string;
-  time: string;
-  title: string;
-  label: string;
-  clock: string;
-}
-
+import { mediaData } from "@/component/media/mediaData";
 const truncateText = (text: string, limit = 70): string =>
   text.length > limit ? `${text.slice(0, limit).trim()}…` : text;
 
@@ -50,6 +41,7 @@ const styles: Record<string, CSSProperties> = {
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
     gap: 20,
     marginTop: 40,
+    alignItems: "stretch",
   },
   box: {
     background: "var(--white-200)",
@@ -71,6 +63,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "flex-start",
     gap: 10,
     width: "100%",
+    flex: 1,
   },
   imageBox: {
     background: "var(--white-200)",
@@ -88,7 +81,10 @@ const styles: Record<string, CSSProperties> = {
     padding: 10,
     display: "flex",
     flexDirection: "column",
+    justifyContent: "space-between",
     gap: 10,
+    flex: 1,
+    width: "100%",
   },
   time: {
     fontSize: 12,
@@ -135,33 +131,6 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const mediaData: MediaItem[] = [
-  {
-    img: CFNLogo,
-    time: "2 SEP. 2019",
-    title:
-      "Communique of the pre-AGM national conference of the Cooperative Federation of Nigeria (CFN) and its launching of the UN International Year of Cooperatives, held in Port Harcourt, Rivers State, 27th–30th August 2012.",
-    label: "Communique",
-    clock: "1 min read",
-  },
-  {
-    img: CFNLogo,
-    time: "2 SEP. 2019",
-    title:
-      "Communique of CFN capacity building workshop for CFN board members held at FOMWAN Complex, Abuja, 18th February 2014.",
-    label: "Communique",
-    clock: "3 min read",
-  },
-  {
-    img: CFNLogo,
-    time: "2 SEP. 2019",
-    title:
-      "The communique issued by participants at the Cooperative Federation of Nigeria workshop/annual general meeting held at the Hills Station Hotel Jos, Plateau State on 24th–25th November 2015.",
-    label: "Communique",
-    clock: "2 min read",
-  },
-];
-
 const Media: FC = () => (
   <Box style={styles.container}>
     <Text style={styles.topText}>Media</Text>
@@ -171,7 +140,7 @@ const Media: FC = () => (
     </Text>
 
     <Box style={styles.body}>
-      {mediaData.map((item, index) => (
+      {mediaData.slice(0, 3).map((item, index) => (
         <Box key={index} style={styles.box}>
           <Box style={styles.wrapper}>
             <Box style={styles.imageBox}>

@@ -1,21 +1,7 @@
 import { Box, Text, Image } from "@mantine/core";
 import { useState, type FC, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
-
-import President1 from "@/assets/president1.webp";
-import President2 from "@/assets/president2.webp";
-import President3 from "@/assets/president3.webp";
-import President6 from "@/assets/president6.webp";
-import President7 from "@/assets/president7.webp";
-import President8 from "@/assets/president8.webp";
-import President9 from "@/assets/president9.webp";
-
-interface President {
-  date: string;
-  name: string;
-  img: string;
-  link: string;
-}
+import { Link, useNavigate } from "react-router-dom";
+import { presidentsData } from "./presidentsData"; 
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -54,17 +40,22 @@ const styles: Record<string, CSSProperties> = {
   imageMain: {
     background: "var(--white-300)",
     border: "1px solid var(--white-100)",
-    borderRadius: 14,
-    padding: 3,
+    borderRadius: 15,
+    padding: 5,
     display: "flex",
     alignItems: "center",
     width: "100%",
     height: "350px",
   },
+    imageBox: {
+    borderRadius: 15,
+    width: "100%",
+    height: "100%",
+  },
   imageWrapper: {
     position: "relative",
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    padding: 3,
     borderRadius: 12,
     overflow: "hidden",
     width: "100%",
@@ -156,21 +147,12 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const presidentsData: President[] = [
-  { date: "1992 - 1997", name: "Hon. Chief Akinpelu Obisesan", img: President1, link: "/presidents/akinpelu-obisesan" },
-  { date: "1992 - 1997", name: "Pastor E. T. Latunde", img: President2, link: "/presidents/et-latunde" },
-  { date: "1992 - 1997", name: "Chief J. E. Babatola", img: President3, link: "/presidents/je-babatola" },
-  { date: "1992 - 1997", name: "Chief S. O. Somoye", img: President1, link: "/presidents/so-somoye" },
-  { date: "1992 - 1997", name: "Chief Remi Obisesan", img: President1, link: "/presidents/remi-obisesan" },
-  { date: "1997", name: "Chief Richard Iyasere", img: President6, link: "/presidents/richard-iyasere" },
-  { date: "1997 - 2009", name: "Sir Adeola Ayoola", img: President7, link: "/presidents/adeola-ayoola" },
-  { date: "2009 - 2017", name: "Engr. Jibrin Bala Abuja", img: President8, link: "/presidents/jibrin-bala-abuja" },
-  { date: "2017 till date", name: "High Chief Oriyomi Ayeola", img: President9, link: "/presidents/oriyomi-ayeola" },
-];
-
 const Presidents: FC = () => {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverProfile, setHoverProfile] = useState<number | null>(null);
+
+  const handleBoxClick = (presidentId: number) => navigate(`/about/${presidentId}`);
 
   return (
     <Box style={styles.container}>
@@ -179,21 +161,29 @@ const Presidents: FC = () => {
 
       <Box style={styles.body}>
         {presidentsData.map((president, index) => (
-          <Box key={index} style={styles.box}>
+          <Box 
+            key={index} 
+            style={styles.box}
+            onClick={() => handleBoxClick(president.id)}
+          >
             <Box style={styles.imageMain}>
               <Box
                 style={styles.imageWrapper}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <Image
-                  src={president.img}
-                  alt={president.name}
-                  style={{
-                    ...styles.image,
-                    transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
-                  }}
-                />
+                <Box style={styles.imageBox}>
+                  <Box style={styles.imageWrapper}>
+                    <Image
+                      src={president.img}
+                      alt={president.name}
+                      style={{
+                        ...styles.image,
+                        transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
+                      }}
+                    />
+                  </Box>
+                </Box>
                 <Box
                   style={{
                     ...styles.overlay,
@@ -201,7 +191,7 @@ const Presidents: FC = () => {
                   }}
                 >
                   <Link
-                    to={president.link}
+                    to={`/about/${president.id}`} 
                     style={{
                       ...styles.viewProfileBox,
                       ...(hoverProfile === index ? styles.viewProfileBoxHover : {}),

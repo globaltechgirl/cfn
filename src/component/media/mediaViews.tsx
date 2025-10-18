@@ -133,7 +133,7 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const Views: FC = () => {
+const MediaViews: FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -238,4 +238,4 @@ const Views: FC = () => {
   );
 };
 
-export default Views;
+export default MediaViews;
