@@ -1,6 +1,6 @@
 import { Box, Text } from "@mantine/core";
 import type { FC, CSSProperties } from "react";
-import Touch from "./touch";
+import ContactCard from "./contactCard";
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -38,7 +38,7 @@ const AboutMain: FC = () => (
       </Text>
     </Box>
 
-    <Touch />
+    <ContactCard />
   </Box>
 );
 
