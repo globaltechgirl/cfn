@@ -76,12 +76,12 @@ const styles: Record<string, CSSProperties> = {
     width: "60%",
   },
   title: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 600,
     color: "var(--black-100)",
   },
   text: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 500,
     color: "var(--black-200)",
     lineHeight: 1.6,
