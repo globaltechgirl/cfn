@@ -1,12 +1,6 @@
 import { Box, Text } from "@mantine/core";
-import { IconUsers, IconHeartHandshake, IconTargetArrow } from "@tabler/icons-react";
-import type { FC, CSSProperties, ReactNode } from "react";
-
-interface Principle {
-  icon: ReactNode;
-  title: string;
-  text: string;
-}
+import type { FC, CSSProperties } from "react";
+import { cooperativeData, type Cooperative} from "@/component/cooperative/cooperativeData";
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -93,44 +87,6 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const principles: Principle[] = [
-  {
-    icon: <IconUsers size={26} color="var(--white-100)" />,
-    title: "Autonomy and Independence",
-    text: "Cooperatives are autonomous, self-help organisations controlled by their members to maintain their cooperative autonomy.",
-  },
-  {
-    icon: <IconHeartHandshake size={26} color="var(--white-100)" />,
-    title: "Voluntary and Open Membership",
-    text: "Cooperatives are voluntary organisations open to all persons without discrimination.",
-  },
-  {
-    icon: <IconTargetArrow size={26} color="var(--white-100)" />,
-    title: "Concern for Community",
-    text: "Cooperatives work for the sustainable development of their communities through policies approved by their members.",
-  },
-  {
-    icon: <IconUsers size={26} color="var(--white-100)" />,
-    title: "Member Economic Participation",
-    text: "Members contribute equitably to, and democratically control, the capital of their cooperative. At least part of that capital is usually the common property of the cooperative. Members usually receive limited compensation, if any, on capital subscribed as a condition of membership. Members allocate surpluses for any or all of the following purposes: developing their cooperative, possibly by setting up reserves, part of which at least would be indivisible; benefiting members in proportion to their transactions with the cooperative; and supporting other activities.",
-  },
-  {
-    icon: <IconHeartHandshake size={26} color="var(--white-100)" />,
-    title: "Democratic Member Control",
-    text: "Cooperatives are democratic organisations controlled by their members, who actively participate in setting their policies.",
-  },
-  {
-    icon: <IconTargetArrow size={26} color="var(--white-100)" />,
-    title: "Education, Training, and Information",
-    text: "Cooperatives provide education and training for their members to ensure effective contribution.",
-  },
-  {
-    icon: <IconHeartHandshake size={26} color="var(--white-100)" />,
-    title: "Cooperation among Cooperatives",
-    text: "Cooperatives serve their members most effectively by working together through different structures.",
-  },
-];
-
 const Principles: FC = () => {
   return (
     <Box style={styles.container}>
@@ -141,7 +97,7 @@ const Principles: FC = () => {
       </Text>
 
       <Box style={styles.body}>
-        {principles.map((principle, index) => (
+        {cooperativeData.map((cooperative: Cooperative, index: number) => (
           <Box
             key={index}
             style={{
@@ -149,10 +105,10 @@ const Principles: FC = () => {
               ...(index === 3 ? styles.tallBox : {}),
             }}
           >
-            <Box style={styles.iconCircle}>{principle.icon}</Box>
+            <Box style={styles.iconCircle}>{cooperative.icon}</Box>
             <Box style={styles.boxText}>
-              <Text style={styles.boxHeader}>{principle.title}</Text>
-              <Text style={styles.boxSub}>{principle.text}</Text>
+              <Text style={styles.boxHeader}>{cooperative.title}</Text>
+              <Text style={styles.boxSub}>{cooperative.text}</Text>
             </Box>
           </Box>
         ))}

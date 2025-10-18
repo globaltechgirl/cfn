@@ -44,8 +44,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "stretch",
   },
   box: {
-    background: "var(--white-200)",
-    border: "1px solid var(--white-300)",
+    background: "var(--white-300)",
     borderRadius: 15,
     padding: 3,
     display: "flex",
@@ -66,8 +65,8 @@ const styles: Record<string, CSSProperties> = {
     flex: 1,
   },
   imageBox: {
-    background: "var(--white-200)",
-    borderRadius: 12,
+    background: "var(--white-300)",
+    borderRadius: 10,
     width: "100%",
     height: 200,
     overflow: "hidden",
