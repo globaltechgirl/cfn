@@ -2,9 +2,6 @@ import { Box, Text } from "@mantine/core";
 import type { FC, CSSProperties } from "react";
 import { cooperativeData, type Cooperative} from "@/component/cooperative/cooperativeData";
 
-const truncateText = (text: string, limit = 120): string =>
-  text.length > limit ? `${text.slice(0, limit).trim()}…` : text;
-
 const styles: Record<string, CSSProperties> = {
   container: {
     width: "100%",
@@ -37,84 +34,60 @@ const styles: Record<string, CSSProperties> = {
     lineHeight: 1.6,
   },
   body: {
+    background: "var(--white-100)",
+    border: "1px solid var(--white-100)",
+    borderRadius: 18,
+    padding: 30,
     width: "90%",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: 10,
+    gap: 15,
     boxSizing: "border-box",
     marginTop: 40,
   },
   box: {
     background: "var(--white-100)",
-    borderRadius: 14,
-    padding: 3,
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    height: "100%", 
-  },
-  boxWrapper: {
-    width: "100%",
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    border: "1px solid var(--white-300)",
     borderRadius: 12,
-    padding: 5,
+    padding: 20,
     display: "flex",
     flexDirection: "column",
-    flex: 1, 
-  },
-  boxMain: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
     alignItems: "flex-start",
     textAlign: "left",
-    gap: 8,
-    flex: 1, 
+    gap: 25,
   },
   tallBox: {
     gridRow: "span 2",
   },
   iconCircle: {
-    width: 35,
-    height: 35,
-    borderRadius: 8,
-    background: "var(--white-100)",
+    background: "var(--green-200)",
+    borderRadius: 12,
+    padding: 10,
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
+    width: 50,
+    height: 50,
   },
   boxText: {
     display: "flex",
     flexDirection: "column",
     gap: 5,
-    background: "var(--white-100)",
-    borderRadius: 10,
-    padding: 10,
-    textAlign: "justify",
-    width: "100%",
-    flex: 1,
   },
   boxHeader: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 500,
     color: "var(--black-100)",
   },
   boxSub: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: 450,
     color: "var(--black-200)",
-    lineHeight: 1.6,
+    lineHeight: 1.5,
   },
 };
 
 const Principles: FC = () => {
-  const reorderedData = cooperativeData.map((item) => {
-    if (item.id === 4) return cooperativeData.find((i) => i.id === 7)!;
-    if (item.id === 7) return cooperativeData.find((i) => i.id === 4)!;
-    return item;
-  });
-
   return (
     <Box style={styles.container}>
       <Text style={styles.topText}>Principles</Text>
@@ -124,26 +97,18 @@ const Principles: FC = () => {
       </Text>
 
       <Box style={styles.body}>
-        {reorderedData.map((cooperative: Cooperative) => (
+        {cooperativeData.map((cooperative: Cooperative, index: number) => (
           <Box
-            key={cooperative.id}
+            key={index}
             style={{
               ...styles.box,
-              ...(cooperative.id === 7 ? styles.tallBox : {}),
+              ...(index === 3 ? styles.tallBox : {}),
             }}
           >
-            <Box style={styles.boxWrapper}>
-              <Box style={styles.boxMain}>
-                <Box style={styles.iconCircle}>{cooperative.icon}</Box>
-                <Box style={styles.boxText}>
-                  <Text style={styles.boxHeader}>{cooperative.title}</Text>
-                  <Text style={styles.boxSub}>
-                    {cooperative.id === 7
-                      ? truncateText(cooperative.text, 505)
-                      : truncateText(cooperative.text, 120)}
-                  </Text>
-                </Box>
-              </Box>
+            <Box style={styles.iconCircle}>{cooperative.icon}</Box>
+            <Box style={styles.boxText}>
+              <Text style={styles.boxHeader}>{cooperative.title}</Text>
+              <Text style={styles.boxSub}>{cooperative.text}</Text>
             </Box>
           </Box>
         ))}

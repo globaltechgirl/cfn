@@ -2,6 +2,7 @@ import { IconUsers, IconHeartHandshake, IconTargetArrow } from "@tabler/icons-re
 import type { ReactNode } from "react";
 
 export interface Cooperative {
+  id: number,
   icon: ReactNode;
   title: string;
   text: string;
@@ -9,6 +10,7 @@ export interface Cooperative {
 
 export const cooperativeData: Cooperative[] = [
   {
+    id: 1,
     icon: <IconUsers size={16} color="var(--black-200)" />,
     title: "Autonomy and Independence",
     text: `
@@ -16,6 +18,7 @@ Cooperatives are autonomous, self-help organisations controlled by their members
     `,
   },
   {
+    id: 2,
     icon: <IconHeartHandshake size={16} color="var(--black-200)" />,
     title: "Voluntary and Open Membership",
     text: `
@@ -23,6 +26,7 @@ Cooperatives are voluntary organisations, open to all persons able to use their 
     `,
   },
   {
+    id: 3,
     icon: <IconTargetArrow size={16} color="var(--black-200)" />,
     title: "Concern for Community",
     text: `
@@ -30,6 +34,7 @@ Cooperatives serve their members most effectively and strengthen the cooperative
     `,
   },
   {
+    id: 4,
     icon: <IconHeartHandshake size={16} color="var(--black-200)" />,
     title: "Democratic Member Control",
     text: `
@@ -37,6 +42,7 @@ Cooperatives are democratic organisations controlled by their members, who activ
     `,
   },
   {
+    id: 5,
     icon: <IconTargetArrow size={16} color="var(--black-200)" />,
     title: "Education, Training, and Information",
     text: `
@@ -44,6 +50,7 @@ Cooperatives provide education and training for their members, elected represent
     `,
   },
   {
+    id: 6,
     icon: <IconHeartHandshake size={16} color="var(--black-200)" />,
     title: "Cooperation among Cooperatives",
     text: `
@@ -51,6 +58,7 @@ Cooperatives work for the sustainable development of their communities through p
     `,
   },
   {
+    id: 7,
     icon: <IconUsers size={16} color="var(--black-200)" />,
     title: "Member Economic Participation",
     text: `
