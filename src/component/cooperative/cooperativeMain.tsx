@@ -35,7 +35,7 @@ const CooperativeMain: FC = () => (
   <Box style={styles.container}>
     <Box style={styles.layeredTextContainer}>
       <Text style={styles.centerText}>
-        Co<span style={styles.spanText}>pperative</span>
+        Co<span style={styles.spanText}>operative</span>
       </Text>
     </Box>
 

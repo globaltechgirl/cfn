@@ -200,6 +200,8 @@ const PresidentsView: FC = () => {
   if (!president) return <Navigate to="/presidents" replace />;
 
   const handleDownload = (): void => {
+    if (!president.img) return;
+    
     const link = document.createElement("a");
     link.href = president.img;
     link.download = `${president.name.replace(/\s+/g, "_")}.webp`;

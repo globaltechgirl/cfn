@@ -1,7 +1,9 @@
 import { Box, Text, Image } from "@mantine/core";
 import { IconClock } from "@tabler/icons-react";
 import type { FC, CSSProperties } from "react";
+import { useNavigate } from "react-router-dom";
 import { mediaData } from "@/component/media/mediaData";
+
 const truncateText = (text: string, limit = 70): string =>
   text.length > limit ? `${text.slice(0, limit).trim()}…` : text;
 
@@ -15,6 +17,7 @@ const styles: Record<string, CSSProperties> = {
     marginTop: -10,
     gap: 20,
     padding: "40px 0",
+    cursor: "pointer"
   },
   topText: {
     fontSize: 12,
@@ -130,39 +133,45 @@ const styles: Record<string, CSSProperties> = {
   },
 };
 
-const Media: FC = () => (
-  <Box style={styles.container}>
-    <Text style={styles.topText}>Media</Text>
-    <Text style={styles.header}>Stay Informed with the Latest media</Text>
-    <Text style={styles.subText}>
-      Read the latest updates and events from the Cooperative Federation of Nigeria.
-    </Text>
+const Media: FC = () => {
+  const navigate = useNavigate();
 
-    <Box style={styles.body}>
-      {mediaData.slice(0, 3).map((item, index) => (
-        <Box key={index} style={styles.box}>
-          <Box style={styles.wrapper}>
-            <Box style={styles.imageBox}>
-              <Image src={item.img} alt="CFN Logo" style={styles.image} />
-            </Box>
+  const handleFeaturedClick = (id: number) => { navigate(`/media/${id}`); };
 
-            <Box style={styles.infoBox}>
-              <Text style={styles.time}>{item.time}</Text>
-              <Text style={styles.title}>{truncateText(item.title, 70)}</Text>
+  return (
+    <Box style={styles.container}>
+      <Text style={styles.topText}>Media</Text>
+      <Text style={styles.header}>Stay Informed with the Latest media</Text>
+      <Text style={styles.subText}>
+        Read the latest updates and events from the Cooperative Federation of Nigeria.
+      </Text>
 
-              <Box style={styles.bottomRow}>
-                <Text style={styles.label}>{item.label}</Text>
-                <Box style={styles.clockBox}>
-                  <IconClock size={13} color="var(--black-300)" />
-                  <Text style={styles.clockText}>{item.clock}</Text>
+      <Box style={styles.body}>
+        {mediaData.slice(0, 3).map((item, index) => (
+          <Box key={index} style={styles.box} onClick={() => handleFeaturedClick(item.id)}>
+            <Box style={styles.wrapper}>
+              <Box style={styles.imageBox}>
+                <Image src={item.img} alt="CFN Logo" style={styles.image} />
+              </Box>
+
+              <Box style={styles.infoBox}>
+                <Text style={styles.time}>{item.time}</Text>
+                <Text style={styles.title}>{truncateText(item.title, 70)}</Text>
+
+                <Box style={styles.bottomRow}>
+                  <Text style={styles.label}>{item.label}</Text>
+                  <Box style={styles.clockBox}>
+                    <IconClock size={13} color="var(--black-300)" />
+                    <Text style={styles.clockText}>{item.clock}</Text>
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      ))}
+        ))}
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default Media;

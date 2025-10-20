@@ -2,6 +2,7 @@ import { Box, Text, Image } from "@mantine/core";
 import { useState, type FC, type CSSProperties } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { presidentsData } from "./presidentsData"; 
+import { IconUser } from "@tabler/icons-react";
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -174,14 +175,28 @@ const Presidents: FC = () => {
               >
                 <Box style={styles.imageBox}>
                   <Box style={styles.imageWrapper}>
-                    <Image
-                      src={president.img}
-                      alt={president.name}
-                      style={{
-                        ...styles.image,
-                        transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
-                      }}
-                    />
+                    {president.img && president.img.trim() !== "" ? (
+                      <Image
+                        src={president.img}
+                        alt={president.name}
+                        style={{
+                          ...styles.image,
+                          transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
+                        }}
+                      />
+                    ) : (
+                      <Box
+                        style={{
+                          ...styles.image,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          backgroundColor: "var(--white-300)",
+                        }}
+                      >
+                        <IconUser size={300} style={{marginTop: 20}} color="var(--black-200)" />
+                      </Box>
+                    )}
                   </Box>
                 </Box>
                 <Box

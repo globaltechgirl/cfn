@@ -10,7 +10,7 @@ export interface President {
   id: number;
   date: string;
   name: string;
-  img: string;
+  img?: string;
   about: string;
   early: string;
   career: string;
@@ -84,7 +84,7 @@ Latunde was also a notable figure in Nigeria’s cooperative movement. He held p
     id: 3,
     date: "-",
     name: "Chief S. O. Somoye",
-    img: President1,
+    img: "",
     about: " He was a business strategist with a vision for long-term cooperative growth.",
     early: " He was a business strategist with a vision for long-term cooperative growth.",
     career: " He was a business strategist with a vision for long-term cooperative growth.",
@@ -93,7 +93,7 @@ Latunde was also a notable figure in Nigeria’s cooperative movement. He held p
     id: 4,
     date: "1992 - 1997",
     name: "Chief Remi Obisesan",
-    img: President1,
+    img: "",
     about: " He was a business strategist with a vision for long-term cooperative growth.",
     early: " He was a business strategist with a vision for long-term cooperative growth.",
     career: " He was a business strategist with a vision for long-term cooperative growth.",
