@@ -9,7 +9,7 @@ import NigerLogo from "@/assets/niger.webp";
 import PlateauLogo from "@/assets/plateau.webp";
 import KanoLogo from "@/assets/kano.webp";
 import OsunLogo from "@/assets/osun.jpg";
-import Layout from "@/assets/lay10.svg";
+import Layout from "@/assets/layout.svg";
 
 import Principles from "./principles";
 import Media from "./media";
@@ -29,7 +29,9 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "100px 40px",
+    paddingTop: 100,
+    paddingBottom: 60,
+    marginBottom: "-20px",
     position: "relative",
     width: "100%",
     overflow: "hidden",
