@@ -1,6 +1,6 @@
 import { Box, Text } from "@mantine/core";
 import type { FC, CSSProperties } from "react";
-import StructureImg from "@/assets/structure.webp";
+import StructureImg from "@/assets/structure.svg";
 
 const styles: Record<string, CSSProperties> = {
   container: {
