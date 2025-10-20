@@ -1,5 +1,6 @@
-import { Box, Text } from "@mantine/core";
 import { useEffect, useState, type FC, type CSSProperties } from "react";
+import { Box, Text } from "@mantine/core";
+import { Plus } from "tabler-icons-react";
 
 import DeltaLogo from "@/assets/delta.webp";
 import LagosLogo from "@/assets/lagos.webp";
@@ -8,25 +9,30 @@ import NigerLogo from "@/assets/niger.webp";
 import PlateauLogo from "@/assets/plateau.webp";
 import KanoLogo from "@/assets/kano.webp";
 import OsunLogo from "@/assets/osun.jpg";
+import Layout from "@/assets/lay10.svg";
+
 import Principles from "./principles";
 import Media from "./media";
 
-interface MapPinProps {
-  image: string;
-  left: string;
-  top: string;
-  delay?: number;
-}
+const LOGOS = [DeltaLogo, LagosLogo, AnambraLogo, NigerLogo, PlateauLogo, KanoLogo, OsunLogo];
+const REPEATED_LOGOS = Array.from({ length: 50 }).flatMap(() => LOGOS);
 
-const styles: Record<string, CSSProperties> = {
+const SLIDER_TEXTS = [
+  "Building cooperative strength nationwide",
+  "Empowering local economies through unity",
+  "Driving sustainable cooperative growth",
+  "Creating opportunities for every member",
+];
+
+const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
-    gap: 25,
-    marginTop: 100,
+    padding: "100px 40px",
+    position: "relative",
+    width: "100%",
+    overflow: "hidden",
   },
   box: {
     border: "1px solid var(--white-100)",
@@ -34,7 +40,6 @@ const styles: Record<string, CSSProperties> = {
     padding: "4px 0",
     maxWidth: 230,
     width: "100%",
-    overflow: "hidden",
     background: "var(--green-300)",
     boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
     height: 25,
@@ -60,6 +65,7 @@ const styles: Record<string, CSSProperties> = {
     lineHeight: 1.1,
     textAlign: "center",
     maxWidth: "70%",
+    margin: "25px 0 80px",
   },
   centerText: {
     fontSize: 60,
@@ -72,21 +78,91 @@ const styles: Record<string, CSSProperties> = {
     color: "var(--green-100)",
     animation: "wave 3s ease-in-out infinite",
   },
-  mapImageContainer: {
-    marginTop: 30,
+  hr: {
+    width: "100%",
+    height: 0.5,
+    background: "var(--white-400)",
+    border: "none",
+    opacity: 0.5,
     position: "relative",
-    width: 1012,
-    height: 578,
   },
-  mapImageStyle: {
+  plusIcon: {
+    position: "absolute",
+    color: "var(--white-400)",
+    background: "var(--white-100)",
+    zIndex: 2,
+    width: 16,
+    opacity: 0.5,
+  },
+  mapImageContainer: {
+    position: "relative",
+    width: "94%",
+    margin: "0 auto",
+    padding: 15,
+  },
+  mapImageWrapper: {
+    borderRadius: 15,
+    background: "var(--white-300)",
+    padding: 3,
+  },
+  mapImageMain: {
+    borderRadius: 12,
+    background: "var(--white-100)",
+    padding: 3,
+  },
+  mapImage: {
+    width: "100%",
+    height: 400,
+    objectPosition: "50% 30%",
+    objectFit: "cover",
+    borderRadius: 10,
     display: "block",
+    background: "var(--white-300)",
+  },
+  logoSliderContainer: {
+    padding: 25,
+    width: "88%",
+    overflow: "hidden",
+    margin: "0 auto",
+    maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+    WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+    position: "relative",
+  },
+  logoSlider: {
+    display: "flex",
+    gap: 50,
+    width: "max-content",
+    animation: "scroll 300s linear infinite",
+  },
+  logoWrapper: {
+    borderRadius: "50%",
+    width: 60,
+    height: 60,
+    padding: 3,
+    background: "var(--white-300)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  logoBox: {
+    padding: 5,
+    borderRadius: "50%",
+    background: "var(--white-100)",
+  },
+  logoImage: {
     width: "100%",
     height: "100%",
-    borderRadius: "inherit",
-    objectPosition: "center center",
-    objectFit: "contain",
+    borderRadius: "50%",
+    objectFit: "cover",
   },
-};
+  verticalLine: {
+    position: "absolute",
+    width: 0.5,
+    background: "var(--white-400)",
+    opacity: 0.5,
+    zIndex: 0,
+  },
+} satisfies Record<string, CSSProperties>;
 
 const addGlobalAnimations = (): void => {
   if (document.getElementById("global-animations")) return;
@@ -95,109 +171,52 @@ const addGlobalAnimations = (): void => {
   style.id = "global-animations";
   style.innerHTML = `
     @keyframes wave {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       25% { transform: translateY(-3px); }
       50% { transform: translateY(3px); }
       75% { transform: translateY(-1px); }
     }
-
-    @keyframes floatPin {
-      0%, 100% { transform: translate(-50%, -100%) translateY(0); }
-      50% { transform: translate(-50%, -100%) translateY(-8px); }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
   `;
   document.head.appendChild(style);
 };
 
-const MapPin: FC<MapPinProps> = ({ image, left, top, delay = 0 }) => (
-  <Box
-    style={{
-      position: "absolute",
-      left,
-      top,
-      transform: "translate(-50%, -100%)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      animation: `floatPin 3s ease-in-out ${delay}s infinite`,
-    }}
-  >
-    <Box
-      style={{
-        borderRadius: "50%",
-        boxShadow:
-          "rgba(0, 0, 0, 0.18) 0px 0.6px 0.6px -1.25px, rgba(0, 0, 0, 0.16) 0px 2.28px 2.28px -2.5px, rgba(0, 0, 0, 0.06) 0px 10px 10px -3.75px, rgba(0, 0, 0, 0.07) 0px 2px 8px 0px",
-        background: "var(--white-300)",
-        border: "1px solid var(--white-100)",
-        width: 35,
-        height: 35,
-        padding: 3,
-      }}
-    >
-      <Box
-        style={{
-          borderRadius: "50%",
-          border: "1.5px solid var(--white-100)",
-          overflow: "hidden",
-          width: "100%",
-          height: "100%",
-          padding: 0.5,
-        }}
-      >
-        <img
-          src={image}
-          alt="pin"
-          style={{
-            display: "block",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            borderRadius: "inherit",
-          }}
-        />
-      </Box>
-    </Box>
-  </Box>
-);
-
 const Main: FC = () => {
-  const texts = [
-    "Building cooperative strength nationwide",
-    "Empowering local economies through unity",
-    "Driving sustainable cooperative growth",
-    "Creating opportunities for every member",
-  ];
-
-  const slides = [...texts, ...texts, ...texts];
+  const slides = [...SLIDER_TEXTS, ...SLIDER_TEXTS, ...SLIDER_TEXTS];
   const [index, setIndex] = useState(0);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
 
   useEffect(() => {
     addGlobalAnimations();
-
     const interval = setInterval(() => setIndex((prev) => prev + 1), 3000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (index >= texts.length * 2) {
+    if (index >= SLIDER_TEXTS.length * 2) {
       setTransitionEnabled(false);
       setIndex(0);
     } else {
       setTransitionEnabled(true);
     }
-  }, [index, texts.length]);
+  }, [index]);
 
   return (
     <Box style={styles.container}>
+      <Box style={{ ...styles.verticalLine, left: "3%", top: 0, bottom: 0 }} />
+      <Box style={{ ...styles.verticalLine, right: "3%", top: 0, bottom: 0 }} />
+      <Plus style={{ ...styles.plusIcon, left: "2.4%", top: -6 }} />
+      <Plus style={{ ...styles.plusIcon, right: "2.4%", top: -6 }} />
+
       <Box style={styles.box}>
         <Box style={styles.sliderTextWrapper}>
           <Box
             style={{
               ...styles.sliderTextList,
-              transition: transitionEnabled
-                ? "transform 0.5s ease-in-out"
-                : "none",
+              transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
               transform: `translateX(-${index * 100}%)`,
             }}
           >
@@ -213,28 +232,46 @@ const Main: FC = () => {
       <Box style={styles.layeredTextContainer}>
         <Text style={styles.centerText}>
           Simplifying equitable{" "}
-          <span style={styles.spanText}>
-            access to Cooperative Services and Opportunities
-          </span>{" "}
-          in Nigeria.
+          <span style={styles.spanText}>access to Cooperative Services and Opportunities</span> in Nigeria.
         </Text>
       </Box>
 
-      <Box style={styles.mapImageContainer}>
-        <img
-          decoding="async"
-          src="https://framerusercontent.com/images/T9pETFKL6i2BZsIuOvF8uWuhQ.svg"
-          alt="Nigeria Map"
-          style={styles.mapImageStyle}
-        />
+      <Box style={styles.hr} />
 
-        <MapPin left="79.2%" top="10%" image={DeltaLogo} />
-        <MapPin left="30.8%" top="31%" image={LagosLogo} />
-        <MapPin left="43%" top="56%" image={KanoLogo} />
-        <MapPin left="31.8%" top="77%" image={OsunLogo} />
-        <MapPin left="59.8%" top="34%" image={AnambraLogo} />
-        <MapPin left="77.5%" top="61%" image={PlateauLogo} />
-        <MapPin left="53.2%" top="82%" image={NigerLogo} />
+      <Box style={{ position: "relative", width: "100%" }}>
+        <Box style={{ ...styles.verticalLine, left: "3%", top: 0, bottom: 0 }} />
+        <Box style={{ ...styles.verticalLine, right: "3%", top: 0, bottom: 0 }} />
+        <Plus style={{ ...styles.plusIcon, left: "2.4%", top: -12 }} />
+        <Plus style={{ ...styles.plusIcon, right: "2.4%", top: -12 }} />
+
+        <Box style={styles.logoSliderContainer}>
+          <Box style={styles.logoSlider}>
+            {REPEATED_LOGOS.map((logo, i) => (
+              <Box key={i} style={styles.logoWrapper}>
+                <Box style={styles.logoBox}>
+                  <img src={logo} alt={`logo-${i}`} style={styles.logoImage} />
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+
+        <Box style={styles.hr} />
+
+        <Plus style={{ ...styles.plusIcon, left: "2.4%", top: "98" }} />
+        <Plus style={{ ...styles.plusIcon, right: "2.4%", top: "98" }} />
+
+        <Box style={styles.mapImageContainer}>
+          <Box style={styles.mapImageWrapper}>
+            <Box style={styles.mapImageMain}>
+              <img src={Layout} alt="Map Layout" style={styles.mapImage} />
+            </Box>
+          </Box>
+          <Box style={{ ...styles.hr, position: "absolute", bottom: 0 }} />
+        </Box>
+
+        <Plus style={{ ...styles.plusIcon, left: "2.4%", bottom: -12 }} />
+        <Plus style={{ ...styles.plusIcon, right: "2.4%", bottom: -12 }} />
       </Box>
 
       <Principles />

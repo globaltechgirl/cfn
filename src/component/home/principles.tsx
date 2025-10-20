@@ -8,14 +8,12 @@ const truncateText = (text: string, limit = 120): string =>
 const styles: Record<string, CSSProperties> = {
   container: {
     width: "100%",
-    background: "var(--green-300)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    marginTop: 30,
     gap: 20,
-    padding: "60px 0",
+    padding: "100px 0",
   },
   topText: {
     fontSize: 12,

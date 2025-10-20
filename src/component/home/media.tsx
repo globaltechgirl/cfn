@@ -14,10 +14,9 @@ const styles: Record<string, CSSProperties> = {
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    marginTop: -10,
     gap: 20,
-    padding: "40px 0",
-    cursor: "pointer"
+    cursor: "pointer",
+    marginTop: "-10px",
   },
   topText: {
     fontSize: 12,
