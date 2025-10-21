@@ -19,7 +19,7 @@ export interface President {
 export const presidentsData: President[] = [
   {
     id: 0,
-    date: "-",
+    date: "-",  
     name: "Hon. Chief Akinpelu Obisesan",
     img: President1,
     about: `
