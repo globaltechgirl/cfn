@@ -1,5 +1,14 @@
 import CFNLogo from "@/assets/cfn.svg";
-import Media1 from "@/assets/media1.webp";
+import Media1 from "@/assets/media1.jpg";
+import Media2 from "@/assets/media2.jpg";
+import Media3 from "@/assets/media3.jpg";
+import Media4 from "@/assets/media4.jpg";
+import Media5 from "@/assets/media5.jpg";
+import Media6 from "@/assets/media6.jpg";
+import Media7 from "@/assets/media7.jpg";
+import Media8 from "@/assets/media8.webp";
+import Media9 from "@/assets/media9.jpg";
+import Media10 from "@/assets/media10.jpg";
 
 export interface MediaItem {
   id: number;
@@ -162,7 +171,7 @@ export const mediaData: MediaItem[] = [
   {
     id: 2,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media2,
     time: "15 AUG. 2018",
     title: 
       "CFN executive secretary’s report to CFN board of directors’ meeting held in Abuja on 15th August, 2018",
@@ -203,7 +212,7 @@ export const mediaData: MediaItem[] = [
   {
     id: 3,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media3,
     time: "21 FEB. 2018",
     title: 
       "Report of executive secretary Co-operative Federation of Nigeria (CFN) to the CFN meeting held in Abuja on 21 February, 2018",
@@ -272,7 +281,7 @@ Board members are encouraging to participate and sensitize State directors in th
   {
     id: 4,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media4,
     time: "6 NOV. 2017",
     title:
       "Speech by CFN president Eng. Jibrin Bala Abuja at the opening ceremony of a pre-congress workshop on “inclusion: co-operatives ensure no one is left behind”, holding at justice Kutigi International Centre, Minna, Niger state on 6th November, 2017",
@@ -307,7 +316,7 @@ Mr. Chairman, Ladies and Gentlemen thank you for your kind attention.
   {
     id: 5,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media5,
     time: "6 Nov. 2017",
     title: 
       "Opening address by the permanent secretary, Alh. Uthman Umar, Niger state ministry of investment, commerce and industry at the CFN 5th congress and national workshop on “inclusion  – cooperatives ensure that no one is left behind” holding in Minna from 6th – 7th November 2017",
@@ -346,7 +355,7 @@ Thank you.
   {
     id: 6,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media6,
     time: "24 NOV. 2015",
     title:
       "The communique issued by participants at the Cooperative Federation of Nigeria workshop/annual general meeting held at the Hills Station Hotel Jos, Plateau state on 24th -25th November 2015",
@@ -404,7 +413,7 @@ Chief Ebikiri Akpolo gave the vote of thanks urging the Government of Plateau St
   {
     id: 7,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media7,
     time: "24 NOV. 2015",
     title: 
       "Address by Engr. Jibrin Bala Jos, president, co-operative federation of Nigeria (CFN)/ vice-chairman, the Alliance Africa, on the occasion of CFN’s pre-agm national workshop on securing ‘‘reliable co-operative capital for enhanced job creation and employment generation’’: challenges and prospects, holding at hill station, Jos, Plateau state, on 24th November, 2015",
@@ -449,7 +458,7 @@ Thank you for your kind attention and God bless.
   {
     id: 8,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media8,
     time: "18 FEB. 2014",
     title:
       "Communique of CFN Capacity Building Workshop for CFN Board Members Held at FOMWAN Complex, Abuja 18th February, 2014",
@@ -482,7 +491,7 @@ The facilitator of the workshop, Mr. J.J. Buden, an experienced lecturer at the 
   {
     id: 9,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media9,
     time: "17 OCT. 2013",
     title: 
       "Address by Engr Jibrin Bala, national president, Co-operative Federation of Nigeria (CFN) during a courtesy visit to the Hon minister of agriculture and rural development, Abuja on 17th October 2013",
@@ -511,7 +520,7 @@ Thank you for your kind attention and God bless.
   {
     id: 10,
     img: CFNLogo,
-    wallpaper: Media1,
+    wallpaper: Media10,
     time: "27 AUG. 2012",
     title:
       "Communique of the Pque of the pre-agm national conference of the Cooperative Federation of Nigeria (CFN) and its launching of the UN international year of cooperatives, holding in Port Harcourt, Rivers state, 27th-30th August 2012",

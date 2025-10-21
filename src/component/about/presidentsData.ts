@@ -1,9 +1,9 @@
 import President1 from "@/assets/president1.webp";
 import President2 from "@/assets/president2.webp";
 import President3 from "@/assets/president3.webp";
-import President6 from "@/assets/president6.webp";
+import President4 from "@/assets/president4.jpg";
 import President7 from "@/assets/president7.webp";
-import President8 from "@/assets/president8.webp";
+import President8 from "@/assets/president8.jpg";
 import President9 from "@/assets/president9.webp";
 
 export interface President {
@@ -84,14 +84,14 @@ Latunde was also a notable figure in Nigeria’s cooperative movement. He held p
     id: 3,
     date: "-",
     name: "Chief S. O. Somoye",
-    img: "",
+    img: President4,
     about: " He was a business strategist with a vision for long-term cooperative growth.",
     early: " He was a business strategist with a vision for long-term cooperative growth.",
     career: " He was a business strategist with a vision for long-term cooperative growth.",
   },
   {
     id: 4,
-    date: "1992 - 1997",
+    date: "1992 - 1996",
     name: "Chief Remi Obisesan",
     img: "",
     about: " He was a business strategist with a vision for long-term cooperative growth.",
@@ -100,9 +100,9 @@ Latunde was also a notable figure in Nigeria’s cooperative movement. He held p
   },
   {
     id: 5,
-    date: "1997",
+    date: "1996 - 1997",
     name: "Chief Richard Iyasere",
-    img: President6,
+    img: "",
     about: `
 Mr. Richard Iyasere is a respected community leader, entrepreneur, and civic advocate based in the Greater New York metropolitan area. Originally from Edo State, Nigeria, he has lived in the United States for over two decades, where he has built an impressive career and a legacy of service to both the Nigerian diaspora and the broader African community.
 <br />
