@@ -578,5 +578,3 @@ The Federal Government is requested to devise mechanisms to:
   ...item,
   clock: computeReadingTime(item.title, item.text),
 }));
-
-
