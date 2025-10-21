@@ -8,7 +8,7 @@ import NigerLogo from "@/assets/niger.webp";
 import PlateauLogo from "@/assets/plateau.webp";
 import KanoLogo from "@/assets/kano.webp";
 import OsunLogo from "@/assets/osun.jpg";
-import Principles from "./principles";
+import Principles from "@/component/home/principles";
 import Media from "./media";
 
 interface MapPinProps {

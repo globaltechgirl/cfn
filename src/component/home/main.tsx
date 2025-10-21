@@ -9,7 +9,7 @@ import NigerLogo from "@/assets/niger.webp";
 import PlateauLogo from "@/assets/plateau.webp";
 import KanoLogo from "@/assets/kano.webp";
 import OsunLogo from "@/assets/osun.jpg";
-import Layout from "@/assets/layout.svg";
+import Layout from "@/assets/layout.png";
 
 import Principles from "./principles";
 import Media from "./media";
