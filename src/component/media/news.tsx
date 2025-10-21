@@ -58,7 +58,8 @@ const styles: Record<string, CSSProperties> = {
   image: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+    objectFit: "cover",
+    objectPosition: "center",
     transition: "transform 0.5s ease",
   },
   infoBox: {
@@ -71,7 +72,7 @@ const styles: Record<string, CSSProperties> = {
     width: "100%",
   },
   time: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: 500,
     color: "var(--black-100)",
     letterSpacing: 1,
@@ -177,7 +178,7 @@ const News: FC = () => {
                 onMouseLeave={() => setHovered(null)}
               >
                 <Image
-                  src={item.img}
+                  src={item.wallpaper}
                   alt={item.title}
                   style={{
                     ...styles.image,

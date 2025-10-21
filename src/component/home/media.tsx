@@ -76,7 +76,8 @@ const styles: Record<string, CSSProperties> = {
   image: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+    objectFit: "cover",
+    objectPosition: "center",
   },
   infoBox: {
     padding: 10,
@@ -150,7 +151,7 @@ const Media: FC = () => {
           <Box key={index} style={styles.box} onClick={() => handleFeaturedClick(item.id)}>
             <Box style={styles.wrapper}>
               <Box style={styles.imageBox}>
-                <Image src={item.img} alt="CFN Logo" style={styles.image} />
+                <Image src={item.wallpaper} alt={item.title} style={styles.image} />
               </Box>
 
               <Box style={styles.infoBox}>
