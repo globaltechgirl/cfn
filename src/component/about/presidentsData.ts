@@ -2,8 +2,8 @@ import President1 from "@/assets/president1.webp";
 import President2 from "@/assets/president2.webp";
 import President3 from "@/assets/president3.webp";
 import President4 from "@/assets/president4.jpg";
-import President7 from "@/assets/president7.webp";
-import President8 from "@/assets/president8.webp";
+import President7 from "@/assets/president7.jpg";
+import President8 from "@/assets/president8.jpg";
 import President9 from "@/assets/president9.webp";
 
 export interface President {
