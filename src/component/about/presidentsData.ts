@@ -3,6 +3,7 @@ import President2 from "@/assets/president2.webp";
 import President3 from "@/assets/president3.webp";
 import President4 from "@/assets/president4.jpg";
 import President7 from "@/assets/president7.webp";
+import President8 from "@/assets/president8.png";
 import President9 from "@/assets/president9.webp";
 
 export interface President {
@@ -164,7 +165,7 @@ Throughout his career, Sir Ayoola received numerous honors, including the Golden
     id: 7,
     date: "2009 - 2017",
     name: "Engr. Jibrin Bala Abuja",
-    img: "",
+    img: President8,
     about: " He was a business strategist with a vision for long-term cooperative growth.",
     early: " He was a business strategist with a vision for long-term cooperative growth.",
     career: " He was a business strategist with a vision for long-term cooperative growth.",
