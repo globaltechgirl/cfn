@@ -6,6 +6,7 @@ import {
   IconBrandLinkedin,
 } from "@tabler/icons-react";
 import type { FC, CSSProperties } from "react";
+import { Link } from "react-router-dom"; 
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -121,11 +122,21 @@ const Footer: FC = () => {
 
           <Box style={styles.column}>
             <Text style={styles.header}>Quick Links</Text>
-            {["About CFN", "Cooperative", "Media", "News & Press Release"].map((link, index) => (
-              <Text key={index} style={styles.linkText}>
-                {link}
-              </Text>
-            ))}
+              <Link to="/about" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>About CFN</Text>
+              </Link>
+
+              <Link to="/cooperative" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>Cooperative</Text>
+              </Link>
+
+              <Link to="/media" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>Media</Text>
+              </Link>
+
+              <Link to="/media" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>News & Press Release</Text>
+              </Link>
           </Box>
 
           <Box style={styles.column}>
