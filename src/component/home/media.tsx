@@ -89,7 +89,7 @@ const styles: Record<string, CSSProperties> = {
     width: "100%",
   },
   time: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: 500,
     color: "var(--black-100)",
     letterSpacing: 1,
