@@ -183,6 +183,7 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: 12,
     padding: 3,
     width: "100%",
+    height: "100%"
   },
   executiveBox: {
     background: "var(--white-200)",
@@ -193,6 +194,8 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
     gap: 15,
+    width: "100%",
+    height: "100%"
   },
 };
 
