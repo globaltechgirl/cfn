@@ -39,7 +39,7 @@ const styles: Record<string, CSSProperties> = {
   },
   leftBox: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 12,
     padding: 3,
     flex: 1,
@@ -47,7 +47,7 @@ const styles: Record<string, CSSProperties> = {
     height: 200,
   },
   leftWrapper: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     border: "1px solid var(--white-100)",
     borderRadius: 10,
     flex: 1,
@@ -77,7 +77,7 @@ const styles: Record<string, CSSProperties> = {
     opacity: 0.5,
   },
   rightBox: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     border: "1px solid var(--white-100)",
     borderRadius: 12,
     padding: 3,
@@ -88,7 +88,7 @@ const styles: Record<string, CSSProperties> = {
   },
   rightWrapper: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 10,
     padding: 20,
     flex: 1,
@@ -111,18 +111,18 @@ const styles: Record<string, CSSProperties> = {
 const missionContent: ContentItem[] = [
   {
     text: "To represent the cooperative sector in dialogue with the Government for favorable legislation.",
-    color: "var(--white-300)",
+    color: "var(--white-200)",
     border: "var(--black-200)",
     marginBottom: 20,
   },
   {
     text: "To organise programs that foster unity, knowledge acquisition and welfare of members.",
-    color: "var(--white-300)",
+    color: "var(--white-200)",
     border: "var(--black-200)",
   },
   {
     text: "To attract development partners to the Cooperative Movement in Nigeria.",
-    color: "var(--white-300)",
+    color: "var(--white-200)",
     border: "var(--black-200)",
   },
 ];
@@ -130,7 +130,7 @@ const missionContent: ContentItem[] = [
 const visionContent: ContentItem[] = [
   {
     text: "To be a foremost non-governmental organization for economic empowerment and prosperity of Nigeria.",
-    color: "var(--white-300)",
+    color: "var(--white-200)",
     border: "var(--black-200)",
     marginBottom: 20,
   },

@@ -12,7 +12,7 @@ const styles: Record<string, CSSProperties> = {
   container: {
     width: "100%",
     background: "var(--black-300)",
-    borderTop: "1px solid var(--white-300)",
+    borderTop: "1px solid var(--white-200)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -130,12 +130,12 @@ const Footer: FC = () => {
                 <Text style={styles.linkText}>Cooperative</Text>
               </Link>
 
-              <Link to="/media" style={{ textDecoration: "none" }}>
-                <Text style={styles.linkText}>Media</Text>
+              <Link to="/newsroom" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>Newsroom</Text>
               </Link>
 
-              <Link to="/media" style={{ textDecoration: "none" }}>
-                <Text style={styles.linkText}>News & Press Release</Text>
+              <Link to="/events" style={{ textDecoration: "none" }}>
+                <Text style={styles.linkText}>Events</Text>
               </Link>
           </Box>
 

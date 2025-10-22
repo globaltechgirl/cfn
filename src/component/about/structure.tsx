@@ -28,15 +28,14 @@ const styles: Record<string, CSSProperties> = {
   body: {
     width: "80%",
     display: "flex",
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    background: "var(--white-200)",
     borderRadius: 18,
     padding: 3,
     marginTop: 20,
   },
   wrapper: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 16,
     padding: 40,
     flex: 1,

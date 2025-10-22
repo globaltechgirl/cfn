@@ -31,14 +31,13 @@ const styles: Record<string, CSSProperties> = {
     flexDirection: "column",
   },
   topLeft: {
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    background: "var(--white-200)",
     padding: 1.5,
     borderRadius: 8,
     marginRight: "auto",
   },
   backIcon: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     border: "1px solid var(--white-100)",
     padding: 2,
     borderRadius: 6,
@@ -97,7 +96,7 @@ const styles: Record<string, CSSProperties> = {
     gap: 30,
   },
   imageBox: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     padding: 3,
     borderRadius: 15,
     width: "100%",
@@ -105,7 +104,7 @@ const styles: Record<string, CSSProperties> = {
   },
   imageWrapper: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     padding: 5,
     borderRadius: 12,
     overflow: "hidden",

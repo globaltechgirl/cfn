@@ -12,8 +12,9 @@ const menuItems: MenuItem[] = [
   { label: "Home", path: "/home" },
   { label: "About", path: "/about" },
   { label: "Cooperative", path: "/cooperative" },
-  { label: "Media", path: "/media" },
-  { label: "Contact Us", path: "/contact" },
+  { label: "Newsroom", path: "/newsroom" },
+  { label: "Events", path: "/events" },
+  { label: "Connect", path: "/connect" },
 ];
 
 const styles: Record<string, CSSProperties> = {

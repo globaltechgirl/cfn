@@ -39,8 +39,7 @@ const styles: Record<string, CSSProperties> = {
     marginBottom: 60 
   },
   imageMain: {
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    background: "var(--white-200)",
     borderRadius: 15,
     padding: 5,
     display: "flex",
@@ -113,8 +112,7 @@ const styles: Record<string, CSSProperties> = {
     bottom: -45,
     left: 0,
     right: 0,
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    background: "var(--white-200)",
     borderRadius: 14,
     padding: 3,
     display: "flex",
@@ -123,7 +121,7 @@ const styles: Record<string, CSSProperties> = {
   },
   boxWrapper: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 10,
     padding: "15px 10px",
     display: "flex",
@@ -191,7 +189,7 @@ const Presidents: FC = () => {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          backgroundColor: "var(--white-300)",
+                          backgroundColor: "var(--white-200)",
                         }}
                       >
                         <IconUser size={300} style={{marginTop: 20}} color="var(--black-200)" />

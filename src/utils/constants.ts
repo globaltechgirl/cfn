@@ -5,15 +5,18 @@ export const ROUTES = {
   ABOUT: "/about",
   ABOUT_PRESIDENTS: "/about/:id",
   COOPERATIVE: "/cooperative",
-  MEDIA: "/media",
-  MEDIA_DETAIL: "/media/:id",
-  CONTACT: "/contact",
+  NEWSROOM: "/newsroom",
+  NEWSROOM_DETAIL: "/newsroom/:id",
+  EVENTS: "/events",
+  EVENTS_DETAIL: "/events/:id",
+  CONNECT: "/connect",
 };
 
 export const NavLinks = [
   { label: "Home", link: ROUTES.HOME },
   { label: "About", link: ROUTES.ABOUT },
   { label: "Cooperative", link: ROUTES.COOPERATIVE },
-  { label: "Media", link: ROUTES.MEDIA },
-  { label: "Contact Us", link: ROUTES.CONTACT },
+  { label: "Newsroom", link: ROUTES.NEWSROOM },
+  { label: "Events", link: ROUTES.EVENTS },
+  { label: "Connect", link: ROUTES.CONNECT },
 ];

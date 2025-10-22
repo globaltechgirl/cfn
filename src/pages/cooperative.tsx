@@ -1,9 +1,9 @@
 import CooperativeMain from "@/component/cooperative/cooperativeMain";
 
 const Cooperative = () => {
-    return (
-        <CooperativeMain />
-    );
+  return (
+    <CooperativeMain />
+  );
 }
 
 export default Cooperative;

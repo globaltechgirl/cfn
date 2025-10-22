@@ -12,7 +12,7 @@ import OsunLogo from "@/assets/osun.jpg";
 import Layout from "@/assets/layout.png";
 
 import Principles from "./principles";
-import Media from "./media";
+import Newsroom from "./newsroom";
 
 const LOGOS = [DeltaLogo, LagosLogo, AnambraLogo, NigerLogo, PlateauLogo, KanoLogo, OsunLogo];
 const REPEATED_LOGOS = Array.from({ length: 50 }).flatMap(() => LOGOS);
@@ -37,7 +37,6 @@ const styles = {
     overflow: "hidden",
   },
   box: {
-    border: "1px solid var(--white-100)",
     borderRadius: 20,
     padding: "4px 0",
     maxWidth: 230,
@@ -83,14 +82,14 @@ const styles = {
   hr: {
     width: "100%",
     height: 0.5,
-    background: "var(--white-400)",
+    background: "var(--white-300)",
     border: "none",
     opacity: 0.5,
     position: "relative",
   },
   plusIcon: {
     position: "absolute",
-    color: "var(--white-400)",
+    color: "var(--white-300)",
     background: "var(--white-100)",
     zIndex: 2,
     width: 16,
@@ -104,7 +103,7 @@ const styles = {
   },
   mapImageWrapper: {
     borderRadius: 15,
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     padding: 3,
   },
   mapImageMain: {
@@ -119,7 +118,7 @@ const styles = {
     objectFit: "cover",
     borderRadius: 10,
     display: "block",
-    background: "var(--white-300)",
+    background: "var(--white-200)",
   },
   logoSliderContainer: {
     padding: 25,
@@ -141,7 +140,7 @@ const styles = {
     width: 60,
     height: 60,
     padding: 3,
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -160,7 +159,7 @@ const styles = {
   verticalLine: {
     position: "absolute",
     width: 0.5,
-    background: "var(--white-400)",
+    background: "var(--white-300)",
     opacity: 0.5,
     zIndex: 0,
   },
@@ -278,7 +277,7 @@ const Main: FC = () => {
 
       <Principles />
 
-      <Media />
+      <Newsroom />
     </Box>
   );
 };

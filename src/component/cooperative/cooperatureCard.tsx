@@ -83,7 +83,7 @@ const styles: Record<string, CSSProperties> = {
   groupWrapperBase: {
     width: "100%",
     maxWidth: 480,
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: 14,
     padding: 3,
     display: "flex",
@@ -94,7 +94,7 @@ const styles: Record<string, CSSProperties> = {
   groupBox: {
     width: "100%",
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 12,
     padding: 5,
   },
@@ -114,7 +114,7 @@ const styles: Record<string, CSSProperties> = {
     width: 35,
     height: 35,
     borderRadius: 8,
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -125,7 +125,7 @@ const styles: Record<string, CSSProperties> = {
     color: "var(--black-100)",
   },
   textBox: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: 10,
     padding: 10,
     textAlign: "justify",
@@ -137,7 +137,7 @@ const styles: Record<string, CSSProperties> = {
     lineHeight: 1.6,
   },
   arrowBox: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: "50%",
     padding: 2,
     transform: "rotate(-45deg)",
@@ -152,7 +152,7 @@ const styles: Record<string, CSSProperties> = {
   },
   arrowButton: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: "50%",
     padding: 4,
   },

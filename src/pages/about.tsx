@@ -1,9 +1,9 @@
 import AboutMain from "@/component/about/aboutMain";
 
 const About = () => {
-    return (
-        <AboutMain />
-    );
+  return (
+    <AboutMain />
+  );
 }
 
 export default About;

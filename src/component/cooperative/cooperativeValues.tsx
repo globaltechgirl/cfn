@@ -41,7 +41,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "stretch",
   },
   box: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: 15,
     padding: 3,
     display: "flex",
@@ -50,7 +50,7 @@ const styles: Record<string, CSSProperties> = {
   },
   wrapper: {
     background: "var(--white-100)",
-    border: "1px solid var(--white-300)",
+    border: "1px solid var(--white-200)",
     borderRadius: 12,
     padding: 5,
     display: "flex",
@@ -60,7 +60,7 @@ const styles: Record<string, CSSProperties> = {
   },
   infoWrapper: {
     padding: "10px 100px 10px 50px",
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: 10,
     display: "flex",
     justifyContent: "space-between",
@@ -110,7 +110,7 @@ const styles: Record<string, CSSProperties> = {
     width: "fit-content",
   },
   iconBox: {
-    background: "var(--white-300)",
+    background: "var(--white-200)",
     borderRadius: 10,
     padding: 15,
     display: "flex",

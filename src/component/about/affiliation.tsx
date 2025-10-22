@@ -33,8 +33,7 @@ const styles: Record<string, CSSProperties> = {
     marginTop: 25,
   },
   imageBox: {
-    background: "var(--white-300)",
-    border: "1px solid var(--white-100)",
+    background: "var(--white-200)",
     borderRadius: 18,
     padding: 3,
     width: 200,

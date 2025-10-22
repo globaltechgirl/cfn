@@ -1,0 +1,88 @@
+import CFNSummit1 from "@/assets/2021 CFN SUMMIT/1.jpg";
+import CFNSummit2 from "@/assets/2021 CFN SUMMIT/2.jpg";
+import CFNSummit3 from "@/assets/2021 CFN SUMMIT/3.jpg";
+import CFNSummit4 from "@/assets/2021 CFN SUMMIT/4.jpg";
+import CFNSummit5 from "@/assets/2021 CFN SUMMIT/5.jpg";
+import CFNSummit6 from "@/assets/2021 CFN SUMMIT/6.jpg";
+import CFNSummit7 from "@/assets/2021 CFN SUMMIT/7.jpg";
+import CFNSummit8 from "@/assets/2021 CFN SUMMIT/8.jpg";
+import CFNSummit9 from "@/assets/2021 CFN SUMMIT/9.jpg";
+import CFNSummit10 from "@/assets/2021 CFN SUMMIT/10.jpg";
+import CFNSummit11 from "@/assets/2021 CFN SUMMIT/11.jpg";
+import CFNSummit12 from "@/assets/2021 CFN SUMMIT/12.jpg";
+import CFNSummit13 from "@/assets/2021 CFN SUMMIT/13.jpg";
+import CFNSummit14 from "@/assets/2021 CFN SUMMIT/14.jpg";
+import CFNSummit15 from "@/assets/2021 CFN SUMMIT/15.jpg";
+import CFNSummit16 from "@/assets/2021 CFN SUMMIT/16.jpg";
+import CFNSummit17 from "@/assets/2021 CFN SUMMIT/17.jpg";
+import CFNSummit18 from "@/assets/2021 CFN SUMMIT/18.jpg";
+import CFNSummit19 from "@/assets/2021 CFN SUMMIT/19.jpg";
+import CFNSummit20 from "@/assets/2021 CFN SUMMIT/20.jpg";
+import CFNSummit21 from "@/assets/2021 CFN SUMMIT/21.jpg";
+import CFNSummit22 from "@/assets/2021 CFN SUMMIT/22.jpg";
+import CFNSummit23 from "@/assets/2021 CFN SUMMIT/23.jpg";
+import CFNSummit24 from "@/assets/2021 CFN SUMMIT/24.jpg";
+import CFNSummit25 from "@/assets/2021 CFN SUMMIT/25.jpg";
+import CFNSummit26 from "@/assets/2021 CFN SUMMIT/26.jpg";
+import CFNSummit27 from "@/assets/2021 CFN SUMMIT/27.jpg";
+import CFNSummit28 from "@/assets/2021 CFN SUMMIT/28.jpg";
+import CFNSummit29 from "@/assets/2021 CFN SUMMIT/29.jpg";
+import CFNSummit30 from "@/assets/2021 CFN SUMMIT/30.jpg";
+import CFNSummit31 from "@/assets/2021 CFN SUMMIT/31.jpg";
+import CFNSummit32 from "@/assets/2021 CFN SUMMIT/32.jpg";
+import CFNSummit33 from "@/assets/2021 CFN SUMMIT/33.jpg";
+import CFNSummit34 from "@/assets/2021 CFN SUMMIT/34.jpg";
+import CFNSummit37 from "@/assets/2021 CFN SUMMIT/37.jpg";
+import CFNSummit38 from "@/assets/2021 CFN SUMMIT/38.jpg";
+import CFNSummit39 from "@/assets/2021 CFN SUMMIT/39.jpg";
+import CFNSummit40 from "@/assets/2021 CFN SUMMIT/40.jpg";
+import CFNSummit41 from "@/assets/2021 CFN SUMMIT/41.jpg";
+import CFNSummit42 from "@/assets/2021 CFN SUMMIT/42.jpg";
+
+export interface CFNSummitItem {
+  id: number;
+  img: string;
+}
+
+export const cfnsummitData: CFNSummitItem[] = [
+  { id: 1, img: CFNSummit1 },
+  { id: 2, img: CFNSummit2 },
+  { id: 3, img: CFNSummit3 },
+  { id: 4, img: CFNSummit4 },
+  { id: 5, img: CFNSummit5 },
+  { id: 6, img: CFNSummit6 },
+  { id: 7, img: CFNSummit7 },
+  { id: 8, img: CFNSummit8 },
+  { id: 9, img: CFNSummit9 },
+  { id: 10, img: CFNSummit10 },
+  { id: 11, img: CFNSummit11 },
+  { id: 12, img: CFNSummit12 },
+  { id: 13, img: CFNSummit13 },
+  { id: 14, img: CFNSummit14 },
+  { id: 15, img: CFNSummit15 },
+  { id: 16, img: CFNSummit16 },
+  { id: 17, img: CFNSummit17 },
+  { id: 18, img: CFNSummit18 },
+  { id: 19, img: CFNSummit19 },
+  { id: 20, img: CFNSummit20 },
+  { id: 21, img: CFNSummit21 },
+  { id: 22, img: CFNSummit22 },
+  { id: 23, img: CFNSummit23 },
+  { id: 24, img: CFNSummit24 },
+  { id: 25, img: CFNSummit25 },
+  { id: 26, img: CFNSummit26 },
+  { id: 27, img: CFNSummit27 },
+  { id: 28, img: CFNSummit28 },
+  { id: 29, img: CFNSummit29 },
+  { id: 30, img: CFNSummit30 },
+  { id: 31, img: CFNSummit31 },
+  { id: 32, img: CFNSummit32 },
+  { id: 33, img: CFNSummit33 },
+  { id: 34, img: CFNSummit34 },
+  { id: 37, img: CFNSummit37 },
+  { id: 38, img: CFNSummit38 },
+  { id: 39, img: CFNSummit39 },
+  { id: 40, img: CFNSummit40 },
+  { id: 41, img: CFNSummit41 },
+  { id: 42, img: CFNSummit42 },
+];
