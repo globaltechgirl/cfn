@@ -1,5 +1,4 @@
 import CFNSummit1 from "@/assets/2021 CFN SUMMIT/1.jpg";
-import CFNSummit2 from "@/assets/2021 CFN SUMMIT/2.jpg";
 import CFNSummit3 from "@/assets/2021 CFN SUMMIT/3.jpg";
 import CFNSummit4 from "@/assets/2021 CFN SUMMIT/4.jpg";
 import CFNSummit5 from "@/assets/2021 CFN SUMMIT/5.jpg";
@@ -46,7 +45,6 @@ export interface CFNSummitItem {
 
 export const cfnsummitData: CFNSummitItem[] = [
   { id: 1, img: CFNSummit1 },
-  { id: 2, img: CFNSummit2 },
   { id: 3, img: CFNSummit3 },
   { id: 4, img: CFNSummit4 },
   { id: 5, img: CFNSummit5 },
