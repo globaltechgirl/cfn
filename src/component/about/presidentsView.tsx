@@ -6,13 +6,14 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { presidentsData, type President } from "./presidentsData";
 import DownloadIcon from "@/assets/icons/download";
+import { IconUser } from "@tabler/icons-react";
 
 const truncateText = (text: string, limit = 250): string =>
   text.length > limit ? `${text.slice(0, limit).trim()}…` : text;
 
 const styles: Record<string, CSSProperties> = {
   container: {
-    marginTop: 60,
+    paddingTop: 60,
     width: "88%",
     margin: "0 auto",
     display: "flex",
@@ -24,7 +25,6 @@ const styles: Record<string, CSSProperties> = {
   body: {
     display: "flex",
     flexDirection: "column",
-    overflow: "hidden",
   },
   box: {
     display: "flex",
@@ -51,7 +51,6 @@ const styles: Record<string, CSSProperties> = {
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    overflow: "hidden",
     gap: 30,
   },
   topBox: {
@@ -107,14 +106,12 @@ const styles: Record<string, CSSProperties> = {
     border: "1px solid var(--white-200)",
     padding: 5,
     borderRadius: 12,
-    overflow: "hidden",
   },
   image: {
-    width: 700,
+    width: 600,
     height: 600,
     objectFit: "cover",
     objectPosition: "top",
-    display: "block",
     borderRadius: 10,
   },
   downloadBox: {
@@ -238,11 +235,28 @@ const PresidentsView: FC = () => {
             <Box style={styles.portraitBox}>
               <Box style={styles.imageBox}>
                 <Box style={styles.imageWrapper}>
-                  <Image
-                    src={president.img}
-                    alt={president.name}
-                    style={styles.image}
-                  />
+                  {president.img ? (
+                    <Image
+                      src={president.img}
+                      alt={president.name}
+                      style={styles.image}
+                    />
+                  ) : (
+                    <Box
+                      style={{
+                        ...styles.image,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: "var(--white-200)",
+                      }}
+                    >
+                      <IconUser
+                        size={500}
+                        color="var(--black-200)"
+                      />
+                    </Box>
+                  )}
                 </Box>
               </Box>
 

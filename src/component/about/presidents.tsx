@@ -1,8 +1,10 @@
 import { Box, Text, Image } from "@mantine/core";
 import { useState, type FC, type CSSProperties } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { presidentsData } from "./presidentsData"; 
 import { IconUser } from "@tabler/icons-react";
+
+import { presidentsData } from "./presidentsData";
+import { executivesData } from "./executivesData";
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -13,19 +15,37 @@ const styles: Record<string, CSSProperties> = {
     textAlign: "center",
     marginTop: -50,
     gap: 20,
-    padding: "60px 0 50px 0",
+    padding: "60px 0 50px",
+    overflow: "hidden",
   },
-  topText: {
-    fontSize: 12,
-    fontWeight: 600,
-    textTransform: "uppercase",
-    color: "var(--green-100)",
-    letterSpacing: 1,
+  topTabsWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+    background: "var(--white-100)",
+    borderRadius: 8,
+    padding: 2.5,
+    border: "1.5px solid var(--white-200)",
   },
-  header: {
-    fontSize: 30,
+  tabBox: {
+    padding: "4px 12px",
+    borderRadius: 6,
+    fontSize: 10,
     fontWeight: 600,
+    color: "var(--black-200)",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  },
+  activeTab: {
+    background: "var(--white-200)",
     color: "var(--black-100)",
+  },
+  bodyWrapper: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 20,
   },
   body: {
     width: "80%",
@@ -33,6 +53,17 @@ const styles: Record<string, CSSProperties> = {
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: 30,
     marginTop: 20,
+    transition: "opacity 0.4s ease",
+  },
+  hidden: {
+    opacity: 0,
+    pointerEvents: "none",
+    position: "absolute",
+  },
+  visible: {
+    opacity: 1,
+    pointerEvents: "auto",
+    position: "relative",
   },
   box: { 
     position: "relative", 
@@ -41,22 +72,17 @@ const styles: Record<string, CSSProperties> = {
   imageMain: {
     background: "var(--white-200)",
     borderRadius: 15,
-    padding: 5,
+    padding: 3,
     display: "flex",
     alignItems: "center",
     width: "100%",
     height: "350px",
   },
-    imageBox: {
-    borderRadius: 15,
-    width: "100%",
-    height: "100%",
-  },
   imageWrapper: {
     position: "relative",
     background: "var(--white-100)",
     padding: 3,
-    borderRadius: 12,
+    borderRadius: 10,
     overflow: "hidden",
     width: "100%",
     height: "100%",
@@ -113,7 +139,7 @@ const styles: Record<string, CSSProperties> = {
     left: 0,
     right: 0,
     background: "var(--white-200)",
-    borderRadius: 14,
+    borderRadius: 15,
     padding: 3,
     display: "flex",
     width: "80%",
@@ -122,7 +148,7 @@ const styles: Record<string, CSSProperties> = {
   boxWrapper: {
     background: "var(--white-100)",
     border: "1px solid var(--white-200)",
-    borderRadius: 10,
+    borderRadius: 12,
     padding: "15px 10px",
     display: "flex",
     flexDirection: "column",
@@ -144,88 +170,143 @@ const styles: Record<string, CSSProperties> = {
     letterSpacing: 1,
     textTransform: "uppercase",
   },
+  executiveCard: {
+    background: "var(--white-200)",
+    borderRadius: 15,
+    padding: 2,
+    display: "flex",
+    width: "80%",
+    margin: "0 auto",
+  },
+  executiveWrapper: {
+    background: "var(--white-100)",
+    borderRadius: 12,
+    padding: 3,
+    width: "100%",
+  },
+  executiveBox: {
+    background: "var(--white-200)",
+    borderRadius: 10,
+    padding: "15px 10px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 15,
+  },
 };
 
 const Presidents: FC = () => {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverProfile, setHoverProfile] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<"presidents" | "executives">("presidents");
 
-  const handleBoxClick = (presidentId: number) => navigate(`/about/${presidentId}`);
+  const handleBoxClick = (id: number) => navigate(`/about/${id}`);
 
   return (
     <Box style={styles.container}>
-      <Text style={styles.topText}>Presidents</Text>
-      <Text style={styles.header}>Presidents to Date</Text>
-
-      <Box style={styles.body}>
-        {presidentsData.map((president, index) => (
-          <Box 
-            key={index} 
-            style={styles.box}
-            onClick={() => handleBoxClick(president.id)}
+      <Box style={styles.topTabsWrapper}>
+        {["presidents", "executives"].map((tab) => (
+          <Box
+            key={tab}
+            style={{
+              ...styles.tabBox,
+              ...(activeTab === tab ? styles.activeTab : {}),
+            }}
+            onClick={() => setActiveTab(tab as "presidents" | "executives")}
           >
-            <Box style={styles.imageMain}>
-              <Box
-                style={styles.imageWrapper}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
-              >
-                <Box style={styles.imageBox}>
-                  <Box style={styles.imageWrapper}>
-                    {president.img && president.img.trim() !== "" ? (
-                      <Image
-                        src={president.img}
-                        alt={president.name}
-                        style={{
-                          ...styles.image,
-                          transform: hovered === index ? "scale(1.08)" : "scale(1.0)",
-                        }}
-                      />
-                    ) : (
-                      <Box
-                        style={{
-                          ...styles.image,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          backgroundColor: "var(--white-200)",
-                        }}
-                      >
-                        <IconUser size={300} style={{marginTop: 20}} color="var(--black-200)" />
-                      </Box>
-                    )}
-                  </Box>
-                </Box>
-                <Box
-                  style={{
-                    ...styles.overlay,
-                    opacity: hovered === index ? 1 : 0,
-                  }}
-                >
-                  <Link
-                    to={`/about/${president.id}`} 
-                    style={{
-                      ...styles.viewProfileBox,
-                      ...(hoverProfile === index ? styles.viewProfileBoxHover : {}),
-                    }}
-                    onMouseEnter={() => setHoverProfile(index)}
-                    onMouseLeave={() => setHoverProfile(null)}
-                  >
-                    View Profile <span style={styles.arrow}>↑</span>
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-
-            <Box style={styles.boxMain}>
-              <Box style={styles.boxWrapper}>
-                <Text style={styles.date}>{president.date}</Text>
-                <Text style={styles.name}>{president.name}</Text>
-              </Box>
-            </Box>
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </Box>
         ))}
+      </Box>
+
+      <Box style={styles.bodyWrapper}>
+        <Box
+          style={{
+            ...styles.body,
+            ...(activeTab === "presidents" ? styles.visible : styles.hidden),
+          }}
+        >
+          {presidentsData.map((president, index) => (
+            <Box key={president.id} style={styles.box} onClick={() => handleBoxClick(president.id)}>
+              <Box style={styles.imageMain}>
+                <Box
+                  style={styles.imageWrapper}
+                  onMouseEnter={() => setHovered(index)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  {president.img ? (
+                    <Image
+                      src={president.img}
+                      alt={president.name}
+                      style={{
+                        ...styles.image,
+                        transform: hovered === index ? "scale(1.08)" : "scale(1)",
+                      }}
+                    />
+                  ) : (
+                    <Box
+                      style={{
+                        ...styles.image,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: "var(--white-200)",
+                      }}
+                    >
+                      <IconUser size={300} color="var(--black-200)" style={{ marginTop: 20 }} />
+                    </Box>
+                  )}
+
+                  <Box
+                    style={{
+                      ...styles.overlay,
+                      opacity: hovered === index ? 1 : 0,
+                    }}
+                  >
+                    <Link
+                      to={`/about/${president.id}`}
+                      style={{
+                        ...styles.viewProfileBox,
+                        ...(hoverProfile === index ? styles.viewProfileBoxHover : {}),
+                      }}
+                      onMouseEnter={() => setHoverProfile(index)}
+                      onMouseLeave={() => setHoverProfile(null)}
+                    >
+                      View Profile <span style={styles.arrow}>↑</span>
+                    </Link>
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box style={styles.boxMain}>
+                <Box style={styles.boxWrapper}>
+                  <Text style={styles.date}>{president.date}</Text>
+                  <Text style={styles.name}>{president.name}</Text>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+
+        <Box
+          style={{
+            ...styles.body,
+            ...(activeTab === "executives" ? styles.visible : styles.hidden),
+          }}
+        >
+          {executivesData.map((executive) => (
+            <Box key={executive.id} style={styles.executiveCard}>
+              <Box style={styles.executiveWrapper}>
+                <Box style={styles.executiveBox}>
+                  <Text style={styles.date}>{executive.role}</Text>
+                  <Text style={styles.name}>{executive.name}</Text>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Box>
   );
